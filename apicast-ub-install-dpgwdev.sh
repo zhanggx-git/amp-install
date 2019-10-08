@@ -5,7 +5,7 @@ AMP_WILDCARD_DOMAIN=dp.paas-test.eubrmb.com
 APICAST_PROJECT_NAME=dpgwdev
 APICAST_APP_NAME_PREFIX=dpgw01dev
 APICAST_TENANT=dpdev
-APICAST_TENANT_ACCESS_TOKEN=356cac3d2deec850534e2dbc1b566f302947e8dc0b64f068ce76a0cadaae5c2c
+APICAST_TENANT_ACCESS_TOKEN=376fe63d28988a5f9d0f0d61f96714bb
 #create APIcast access_token by tenant portal
 #"name": "APIcast", "scopes": ["account_management"],"permission": "ro"
 
@@ -39,6 +39,7 @@ oc new-app --file ./apicast-ub-2.6.yml \
            --param DEPLOYMENT_ENVIRONMENT=staging \
            --param CONFIGURATION_LOADER=lazy \
            --param CONFIGURATION_CACHE=0 \
+           --param PATH_ROUTING=true \
             > install_apicast_${APICAST_PROJECT_NAME}.log
 oc set env dc/$APICAST_STAGING_APP_NAME BACKEND_ENDPOINT_OVERRIDE=$APICAST_BACKEND_ENDPOINT
 oc create route edge $APICAST_STAGING_APP_NAME --service $APICAST_STAGING_APP_NAME
@@ -50,6 +51,7 @@ oc new-app --file ./apicast-ub-2.6.yml \
            --param DEPLOYMENT_ENVIRONMENT=production \
            --param CONFIGURATION_LOADER=boot \
            --param CONFIGURATION_CACHE=300 \
+           --param PATH_ROUTING=true \
             >> install_apicast_${APICAST_PROJECT_NAME}.log
 oc set env dc/$APICAST_PRODUCTION_APP_NAME BACKEND_ENDPOINT_OVERRIDE=$APICAST_BACKEND_ENDPOINT
 oc create route edge $APICAST_PRODUCTION_APP_NAME --service $APICAST_PRODUCTION_APP_NAME

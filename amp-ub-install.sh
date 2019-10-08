@@ -14,6 +14,8 @@ oc new-app --file ./amp-ub-2.6.yml \
            --param TENANT_NAME=$AMP_TENANT_NAME \
            --param MASTER_NAME=$AMP_MASTER_NAME \
             > install_amp_${AMP_PROJECT_NAME}.log
+oc set env dc/apicast-staging APICAST_PATH_ROUTING=true
+oc set env dc/apicast-production APICAST_PATH_ROUTING=true
 
 tail -f install_amp_${AMP_PROJECT_NAME}.log
 
