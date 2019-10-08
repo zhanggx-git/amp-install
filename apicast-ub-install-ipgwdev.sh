@@ -56,6 +56,8 @@ oc new-app --file ./apicast-ub-2.6.yml \
 oc set env dc/$APICAST_PRODUCTION_APP_NAME BACKEND_ENDPOINT_OVERRIDE=$APICAST_BACKEND_ENDPOINT
 oc create route edge $APICAST_PRODUCTION_APP_NAME --service $APICAST_PRODUCTION_APP_NAME
 
+. ./amp-ub-setenv.sh ${APICAST_PROJECT_NAME}
+
 
 tail -f install_apicast_${APICAST_PROJECT_NAME}.log
 

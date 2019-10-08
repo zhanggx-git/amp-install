@@ -17,6 +17,8 @@ oc new-app --file ./amp-ub-2.6.yml \
 oc set env dc/apicast-staging APICAST_PATH_ROUTING=true
 oc set env dc/apicast-production APICAST_PATH_ROUTING=true
 
+. ./amp-ub-setenv.sh ${AMP_PROJECT_NAME}
+
 tail -f install_amp_${AMP_PROJECT_NAME}.log
 
 
