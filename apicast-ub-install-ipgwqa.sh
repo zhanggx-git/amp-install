@@ -24,6 +24,8 @@ APICAST_BACKEND_ENDPOINT=http://backend-listener.$AMP_PROJECT_NAME.svc.cluster.l
 #oc new-project $APICAST_PROJECT_NAME --display-name=$APICAST_PROJECT_NAME"-apicast" --description="3scale gateway apicast"
 oc new-project $APICAST_PROJECT_NAME --display-name=$APICAST_PROJECT_NAME --description="3scale gateway apicast"
 
+oc patch namespace $APICAST_PROJECT_NAME -p '{"metadata":{"annotations":{"openshift.io/node-selector":"apigw=true"}}}'
+
 oc adm pod-network join-projects --to=$AMP_PROJECT_NAME $APICAST_PROJECT_NAME
 
 oc create secret generic apicast-configuration-url-secret \

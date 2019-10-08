@@ -22,8 +22,6 @@ objects:
     replicas: 1
     selector:
       deploymentconfig: "${APICAST_NAME}"
-    nodeSelector:
-      apigw: true
     strategy:
       type: Rolling
     template:

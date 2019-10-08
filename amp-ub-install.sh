@@ -7,6 +7,8 @@ AMP_MASTER_NAME=api
 #oc new-project $AMP_PROJECT_NAME --display-name=$AMP_PROJECT_NAME"-3scale" --description="3scale api management"
 oc new-project $AMP_PROJECT_NAME --display-name=$AMP_PROJECT_NAME --description="3scale api management"
 
+oc patch namespace $AMP_PROJECT_NAME -p '{"metadata":{"annotations":{"openshift.io/node-selector":"apigw=false"}}}'
+
 oc new-app --file ./amp-ub-2.6.yml \
            --param WILDCARD_DOMAIN=$AMP_WILDCARD_DOMAIN \
            --param TENANT_NAME=$AMP_TENANT_NAME \
