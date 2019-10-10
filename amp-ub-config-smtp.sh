@@ -10,6 +10,8 @@ oc patch configmap smtp -p '{"data":{"openssl.verify.mode":""}}'
 oc patch configmap smtp -p '{"data":{"port":"587"}}'
 oc patch configmap smtp -p '{"data":{"domain":""}}'
 
+oc set env dc/system-sidekiq NOTIFICATION_EMAIL=maxadmin@universalbeijing.com
+
 oc rollout latest dc/system-app
 oc rollout latest dc/system-sidekiq
 
