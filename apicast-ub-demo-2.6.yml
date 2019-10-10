@@ -121,7 +121,7 @@ parameters:
   value: "2.6.0"
   required: true
 - name: AMP_APICAST_IMAGE
-  value: "registry002.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo"
+  value: "registry.paas-test.eubrmb.com:5000/3scale-amp26/apicast-gateway-demo"
   required: true
 - description: "Name of the secret containing the THREESCALE_PORTAL_ENDPOINT with the access-token or provider key"
   value: apicast-configuration-url-secret
