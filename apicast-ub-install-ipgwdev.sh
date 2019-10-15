@@ -2,10 +2,10 @@
 AMP_PROJECT_NAME=apim
 AMP_WILDCARD_DOMAIN=dp.paas-test.eubrmb.com
 
-APICAST_PROJECT_NAME=ipgwdev
-APICAST_APP_NAME_PREFIX=ipgw01dev
+APICAST_PROJECT_NAME=gwipdev
+APICAST_APP_NAME_PREFIX=gwip01dev
 APICAST_TENANT=ipdev
-APICAST_TENANT_ACCESS_TOKEN=8349226cac76652d7f44f126a9b86048
+APICAST_TENANT_ACCESS_TOKEN=fa57ed10d05c5c6ea11c5aff21a41b1e
 #create APIcast access_token by tenant portal
 #"name": "APIcast", "scopes": ["account_management"],"permission": "ro"
 
